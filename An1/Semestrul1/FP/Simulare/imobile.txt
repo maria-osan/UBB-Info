@@ -1,0 +1,3 @@
+23,str. Cernei nr. 10 Cluj-Napoca,60000,vanzare
+1236,str. Alverna nr. 60 Cluj-Napoca,89000,vanzare
+7125,str. Albac nr. 2 Cluj-Napoca,46500,vanzare

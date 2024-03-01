@@ -1,0 +1,4 @@
+Matematica;5;Dana Morar
+Desen;8762;Delia Bodor
+Romana;5629;Anca Morari
+Engleza;2001;Claudia Popescu

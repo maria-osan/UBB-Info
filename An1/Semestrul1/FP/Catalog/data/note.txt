@@ -1,0 +1,12 @@
+Ema Pop;1236;Matematica;5;Dana Morar;8.75
+Ema Pop;1236;Matematica;5;Dana Morar;9.05
+Ema Pop;1236;Romana;5629;Anca Morari;9.85
+Ana Hagau;2015;Desen;8762;Delia Bodor;10
+Ana Hagau;2015;Matematica;5;Dana Morar;5.45
+Nadia Maxim;1547;Romana;5629;Anca Morari;7.25
+Alex Baciu;473;Matematica;5;Dana Morar;6.85
+Alex Baciu;473;Romana;5629;Anca Morari;6.90
+Alex Baciu;473;Romana;5629;Anca Morari;9.65
+Alex Baciu;473;Desen;8762;Delia Bodor;9.90
+Florin Coroiu;908;Matematica;5;Dana Morar;8.75
+Florin Coroiu;908;Romana;5629;Anca Morari;9.95
