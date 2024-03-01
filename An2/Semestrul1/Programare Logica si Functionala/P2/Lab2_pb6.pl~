@@ -1,0 +1,53 @@
+% adaugaSfarsit(L1: list, L2: list, Rez: list)
+%    model de flux: (i, i, o), (i, i, i)
+%    L1 - lista in care se adauga
+%    L2 - lista care se adauga
+%    Rez - lista rezultata din adaugarea listei L2 la sfarsitul listei
+%    L1
+
+adaugaSfarsit([], L, L).
+
+adaugaSfarsit([H|T], L, [H|R]) :-
+    adaugaSfarsit(T, L, R).
+
+% inloc(L1: list, Elem: Element, L2: list, Rez: list)
+%    model de flux: (i, i, i, o), (i, i, i, i)
+%    L1 - lista in care elementul Elem este inlocuit cu lista L2
+%    Elem - elementul care se inlocuieste
+%    L2 - lista cu care se inlocuieste elementul Elem
+%    Rez - lista rezultat in care toate aparitiile elementul Elem sa
+%    inlocuit cu lista L2
+
+inloc([], _, _, []).
+
+inloc([E|T], E, L1, R) :-
+    inloc(T, E, L1, Rez),
+    adaugaSfarsit(L1, Rez, R).
+
+inloc([H|T], E, L1, R) :-
+    H \= E,
+    inloc(T, E, L1, Rez),
+    adaugaSfarsit([H], Rez, R).
+
+% inlocSubliste(L: list, L1: list, R: list)
+%   model de flux: (i, i, o), (i ,i, i)
+%   L - lista data
+%   L1 - lista cu care se inlocuiesc aparitiile primului element din
+%   sublistele listei L
+%   R - lista rezultat
+
+inlocSubliste([], _, []).
+
+inlocSubliste([H|T], L1, [R|Rez]) :-
+    is_list(H),
+    H = [Elem|_],
+    inloc(H, Elem, L1, R),
+    inlocSubliste(T, L1, Rez).
+
+inlocSubliste([H|T], L1, [H|Rez]) :-
+    \+ is_list(H),
+    inlocSubliste(T, L1, Rez).
+
+main(L, L1) :-
+    inlocSubliste(L, L1, Rez),
+    write(Rez).

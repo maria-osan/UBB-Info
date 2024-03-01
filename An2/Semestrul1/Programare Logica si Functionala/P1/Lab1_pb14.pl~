@@ -1,0 +1,51 @@
+apare([E|_], E) :-
+    !.
+apare([_|T], E) :-
+    apare(T, E).
+
+% verificare(L1: list, L2: list)
+%   flow model: (i, i)
+%   L1 - lista elementelor pe care le verificam
+%   L2 - lista in care cautam
+
+verificare([], _).
+verificare([H|T], L2) :-
+    apare(L2, H),
+    verificare(T, L2).
+
+% multimiEgale(L1: list, L2: list)
+%   flow model: (i, i)
+%   L1 - multimea 1
+%   L2 - multimea 2
+
+multimiEgale(L1, L2) :-
+    verificare(L1, L2),
+    verificare(L2, L1).
+
+% el = Element
+% list = el*
+%
+% nElement(N: number, List: list, El: Element)
+%    flow model: (i, i, o), (i, i, i)
+%    N - the position of the element to be selected
+%    List - the list of elements
+%    El - the selected element at position N
+
+% Verificam cazul de baza in care N este 1 si selecteaza primul element
+nElement(1, [Element|_], Element).
+
+% Recursiv, scade N cu 1 si continua sa selecteze elementul dorit
+nElement(N, [_|T], Element) :-
+    N > 1,
+    NextN is N - 1,
+    nElement(NextN, T, Element).
+
+
+
+
+
+
+
+
+
+

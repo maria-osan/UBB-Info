@@ -1,0 +1,34 @@
+% sterge(L: list, Index: integer, Nr: integer, R: list)
+% model de flux: (i, i, i, o), (i, i, i, i)
+% L - lista data
+% Index - pozitia curenta in lista
+% Nr - o variabila in care se calculeaza urmatorul element care trebuie
+% sters
+% R - lista rezultata prin stergerea elementelor
+sterge([], _, _, []).
+
+sterge([_], Index, Nr, []) :-
+    Index is 1,
+    Nr is 1, !,
+    NrNou is Nr * 2 + 1,
+    IndexNou is Index + 1,
+    sterge([], IndexNou, NrNou, []).
+
+sterge([H|T], Index, Nr, [H|R]) :-
+    Index =\= Nr,
+    IndexNou is Index + 1,
+    sterge(T, IndexNou, Nr, R).
+
+sterge([_|T], Index, Nr, R) :-
+    Index =:= Nr,
+    IndexNou is Index + 1,
+    NrNou is Nr * 2 + 1,
+    sterge(T, IndexNou, NrNou, R).
+
+% sterge_main(L: list, R: list)
+% model de flux: (i, o), (i, i)
+% L - lista data
+% R - lista rezultata prin stergerea din lista a elementelor de pe
+% pozitiile 1, 3, 7, 15...
+sterge_main(L, R) :-
+    sterge(L, 1, 1, R).
