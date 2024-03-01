@@ -27,24 +27,23 @@ int main() {
 
 
   int l = sizeof(server);
-  //while(1) {
-          printf("Introduceti un sir de caractere: ");
-          fgets(sir, sizeof(sir), stdin);
-          printf("Introduceti caracterul cautat: ");
-          scanf("%c", &chr);
+  
+  printf("Introduceti un sir de caractere: ");
+  fgets(sir, sizeof(sir), stdin);
+  printf("Introduceti caracterul cautat: ");
+  scanf("%c", &chr);
 
-          sendto(c, &sir, sizeof(sir), 0, (struct sockaddr *) &server, sizeof(server));
-          sendto(c, &chr, sizeof(chr), 0, (struct sockaddr *) &server, sizeof(server));
+  sendto(c, &sir, sizeof(sir), 0, (struct sockaddr *) &server, sizeof(server));
+  sendto(c, &chr, sizeof(chr), 0, (struct sockaddr *) &server, sizeof(server));
 
-          recvfrom(c, &nr_poz, sizeof(nr_poz), 0, (struct sockaddr *) &server, &l);
-          for(int i=0; i<nr_poz; i++)
-                  recvfrom(c, &poz[i], sizeof(poz[i]), 0, (struct sockaddr *) &server, &l);
+  recvfrom(c, &nr_poz, sizeof(nr_poz), 0, (struct sockaddr *) &server, &l);
+  for(int i=0; i<nr_poz; i++)
+    recvfrom(c, &poz[i], sizeof(poz[i]), 0, (struct sockaddr *) &server, &l);
 
-          printf("Caracterul %c apare in sir pe pozitiile: \n", chr);
-          for(int i=0; i<nr_poz; i++)
-                  printf("%d ", poz[i]);
-          printf("\n");
-  //}
+  printf("Caracterul %c apare in sir pe pozitiile: \n", chr);
+  for(int i=0; i<nr_poz; i++)
+    printf("%d ", poz[i]);
+  printf("\n");
 
   close(c);
 }

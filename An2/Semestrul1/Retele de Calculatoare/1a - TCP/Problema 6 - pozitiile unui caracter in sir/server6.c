@@ -58,11 +58,6 @@ int main() {
     memset(&client, 0, sizeof(client));
 
     while (1) {
-        /*char sir[100];
-        char caracter;
-        int pozitii[100];
-        int numar_pozitii = 0;*/
-
         c = accept(s, (struct sockaddr *) &client, &l);
         printf("S-a conectat un client.\n");
 
@@ -70,23 +65,5 @@ int main() {
                 deservire_client(c);
                 return 0;
         }
-
-        /*// Deservirea clientului
-        recv(c, sir, sizeof(sir), MSG_WAITALL);
-        recv(c, &caracter, sizeof(caracter), MSG_WAITALL);
-
-        // Găsirea pozițiilor caracterului în șir
-        for (int i = 0; sir[i] != '\0'; i++) {
-            if (sir[i] == caracter) {
-                pozitii[numar_pozitii] = i;
-                numar_pozitii++;
-            }
-        }
-
-        // Trimiterea pozițiilor către client
-        send(c, &numar_pozitii, sizeof(numar_pozitii), 0);
-        send(c, pozitii, sizeof(int) * numar_pozitii, 0);
-
-        close(c);*/
     }
 }

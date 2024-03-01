@@ -68,9 +68,6 @@ int main() {
     memset(&client, 0, sizeof(client));
 
     while (1) {
-        //uint16_t numere[100];
-        //int numar_numere = 0;
-
         c = accept(s, (struct sockaddr *) &client, &l);
         printf("S-a conectat un client.\n");
 
@@ -78,33 +75,5 @@ int main() {
                 deservire_client(c);
                 return 0;
         }
-        /*// Deservirea clientului
-        int numere_primiti;
-        recv(c, &numere_primiti, sizeof(numere_primiti), MSG_WAITALL);
-        numere_primiti = ntohs(numere_primiti);
-
-
-        // Primeste numerele
-        for (int i = 0; i < numere_primiti; i++) {
-            uint16_t numar;
-            recv(c, &numar, sizeof(numar), MSG_WAITALL);
-            numar = ntohs(numar);
-            numere[i] = numar;
-            numar_numere++;
-        }
-
-        // Calculează suma numerelor
-        uint16_t suma = 0;
-        for (int i = 0; i < numar_numere; i++) {
-            suma += numere[i];
-        }
-        suma = htons(suma);
-
-        // Trimite suma înapoi la client
-        send(c, &suma, sizeof(suma), 0);
-
-        //printf("Suma numerelor primite: %u\n", ntohs(suma));
-
-        close(c);*/
     }
 }
