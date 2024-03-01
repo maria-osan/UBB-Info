@@ -1,0 +1,24 @@
+DROP TABLE users
+
+-- User table
+CREATE TABLE users (
+	id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+	first_name CHARACTER VARYING(50) NOT NULL,
+	last_name CHARACTER VARYING(50) NOT NULL,
+	email CHARACTER VARYING(50) NOT NULL
+);
+
+
+
+DROP TABLE friendships
+
+-- Friendship table
+CREATE TABLE friendships (
+	id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+	friends_from TIMESTAMP,
+	user1_id BIGINT,
+	user2_id BIGINT,
+	friendRequestStatus VARCHAR(15),
+	FOREIGN KEY (user1_id) REFERENCES users(id) ON DELETE CASCADE,
+	FOREIGN KEY (user2_id) REFERENCES users(id) ON DELETE CASCADE
+); 
