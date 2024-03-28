@@ -1,0 +1,46 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body { 
+    height: 100%; 
+    margin: 0;
+}
+
+header {
+    background-color: #80CBC4; 
+    height: 20vh;
+}
+
+footer {
+    background-color: #80CBC4; 
+    height: 10vh;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    justify-content: space-between;
+}
+
+li {
+    width: 25%;
+    border-left: 2px solid;
+    float: left;
+}
+
+#menu {
+    justify-content: space-between;
+    background-color: #4DB6AC;
+}
+
+#main {
+    background-color: #B2DFDB; 
+    height: 40vh;
+    display: flex;
+    flex-direction: column;
+}

@@ -1,0 +1,47 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body { 
+    height: 100%; 
+    margin: 0;
+}
+
+header {
+    background-color: #4DB6AC; 
+    height: 20vh;
+}
+
+footer {
+    background-color: #4DB6AC; 
+    height: 10vh;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    justify-content: space-between;
+}
+
+li {
+    border-bottom: 2px solid;
+}
+
+#container {
+    display: flex;
+}
+
+#menu {
+    width: 20%;
+    background-color: #80CBC4;
+}
+
+#main {
+    width: 80%;
+    background-color: #B2DFDB; 
+    height: 40vh;
+}

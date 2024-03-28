@@ -1,0 +1,111 @@
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+}
+
+nav.vertical {
+    display: flex;
+    flex-direction: column;
+}
+
+nav.horizontal {
+    display: flex;
+    flex-direction: row;
+}
+
+nav a {
+    width: 55px;
+    height: 55px;
+    background-image: url('social-icons.png');
+    background-repeat: no-repeat;
+}
+
+#facebook:hover {
+    background-position: 0px 0px
+}
+
+#facebook {
+    background-position: 0px -55px
+}
+
+#flicker:hover {
+    background-position: -55px 0px
+}
+
+#flicker {
+    background-position: -55px -55px
+}
+
+#dribbble:hover {
+    background-position: -110px 0px
+}
+
+#dribbble {
+    background-position: -110px -55px
+}
+
+#google:hover {
+    background-position: -165px 0px
+}
+
+#google {
+    background-position: -165px -55px
+}
+
+#linkedin:hover {
+    background-position: -220px 0px
+}
+
+#linkedin {
+    background-position: -220px -55px
+}
+
+#pinterest:hover {
+    background-position: -275px 0px
+}
+
+#pinterest {
+    background-position: -275px -55px
+}
+
+#wifi:hover {
+    background-position: -330px 0px
+}
+
+#wifi {
+    background-position: -330px -55px
+}
+
+#skype:hover {
+    background-position: -385px 0px
+}
+
+#skype {
+    background-position: -385px -55px
+}
+
+#vimeo:hover {
+    background-position: -440px 0px
+}
+
+#vimeo {
+    background-position: -440px -55px
+}
+
+#twitter:hover {
+    background-position: -495px 0px
+}
+
+#twitter {
+    background-position: -495px -55px
+}
+
+#youtube:hover {
+    background-position: -550px 0px
+}
+
+#youtube {
+    background-position: -550px -55px
+}

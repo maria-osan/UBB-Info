@@ -1,0 +1,40 @@
+.dialog {
+    list-style: none;
+    padding: 0;
+}
+
+.dialog li {
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 10px;
+    max-width: 70%;
+    min-width: 200px;
+    min-height: 40px;
+}
+
+.alice {
+    margin-left: auto;
+    background-image: url('avatar-sprite.png');
+    background-repeat: no-repeat;
+    background-position: 0px -5px;
+    background-size: 90px;
+}
+
+.bob {
+    margin-right: auto;
+    background-image: url('avatar-sprite.png');
+    background-repeat: no-repeat;
+    background-position: 0px -125px;
+    background-size: 90px;
+}
+
+.alice::before,
+.bob::before {
+    content: attr(data-text);
+    text-align: center;
+    padding-left: 25%;
+    height: auto;
+    overflow: auto;
+    margin-bottom: 10px;
+}
