@@ -1,0 +1,136 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Formular HTML 4.01</title>
+</head>
+<body style="background-color: #f9fdfd;">
+	<img src="https://www.gfbrasov.ro/wp-content/uploads/articles.png" alt="Formular de inscriere" style="float: left;width: 50px;height: 50px;padding-left: 25px;padding-top: 10px;">
+	<h1 style="text-align: center;color: #009f9f">Formular de &#238;nscriere</h1>
+	<br><hr>
+	<form method="GET" action="">
+		<fieldset>
+			<legend style="color: #009f9f;"><b>Date personale</b></legend>
+			<table>
+				<tr>
+					<td>Nume:</td> 
+					<td><input type="text" name="nume"></td>
+				</tr>
+				<tr>
+					<td>Data na&#351;terii:</td> 
+					<td><input type="text" name="data_nasterii"></td>
+				</tr>
+				<tr>
+					<td>Email:</td> 
+					<td><input type="text" name="email"></td>
+				</tr>
+				<tr>
+					<td>Telefon:</td> 
+					<td><input type="text" name="telefon"></td>
+				</tr>
+				<tr>
+					<td>Adres&#259;:</td> 
+					<td><input type="text" name="adresa" disabled></td>
+				</tr>
+				<tr>
+					<td>&#354;ar&#259;:</td> 
+					<td><input type="text" name="adresa" value="Rom&#226;nia" readonly></td>
+				</tr>
+				<tr>
+					<td>Ora&#351;:</td>
+					<td rowspan="5">
+						<input type="radio" name="oras" value="Bucuresti">Bucure&#351;ti
+						<input type="radio" name="oras" value="Cluj-Napoca">Cluj-Napoca
+						<input type="radio" name="oras" value="Timisoara">Timi&#351;oara
+						<input type="radio" name="oras" value="Iasi">Ia&#351;i
+						<input type="radio" name="oras" value="Constanta">Constanța
+					</td>
+				</tr>
+			</table>
+		</fieldset>
+		<br>
+		<fieldset>
+			<legend style="color: #009f9f;"><b>Alte date</b></legend>
+			<table>
+				<tr>
+		            <td>Limbi str&#259;ine:</td>
+		            <td>
+		            	<table>
+		            		<tr>
+			            		<td><input type="checkbox" name="engleza">Englez&#259;</td>
+				                <td><input type="checkbox" name="franceza">Francez&#259;</td>
+				                <td><input type="checkbox" name="germana">German&#259;</td>
+				                <td><input type="checkbox" name="spaniola">Spaniol&#259;</td>
+				                <td><input type="checkbox" name="japoneza">Japonez&#259;</td>
+			            	</tr>
+		            	</table>
+		            </td>
+				</tr>
+				<tr>
+					<td>Hobbies:</td>
+					<td>
+						<select name="hobbies" size="5" multiple>
+							<option value="cititul">Cititul</option>
+							<option value="gradinaritul">Gr&#259;din&#259;ritul</option>
+							<option value="pictura">Pictura</option>
+							<option value="gatitul">G&#259;titul</option>
+							<option value="fotografia">Fotografia</option>
+							<option value="calatoritul">C&#259;l&#259;toritul</option>
+							<option value="muzica">Muzica</option>
+							<option value="sportul">Sportul</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td>Descriere:</td>
+					<td colspan="5"><textarea name="descriere" rows="4" cols="20"></textarea></td>
+				</tr>
+			</table>
+		</fieldset>
+		<br>
+		<input type="checkbox" name="accept_termeni">Accept <span style="color: #009f9f;font-style: italic;">termenii</span> &#351;i <span style="color: #009f9f;font-style: italic;">condițiile</span> <br>
+		<hr><br>
+		<input type="submit" name="Trimite">
+		<input type="reset" name="Reset">
+	</form>
+
+	<br><br>
+	<hr><hr>
+	<br>
+	<h2 style="color: #009f9f;padding-left: 10px;">Liste:</h2>
+	<img src="astronomy1.png" alt="Formular de inscriere" style="float: left;width: 50px;height: 50px;"><br>
+	<p><a href="https://ro.wikipedia.org/wiki/Astronomie" target="_blank">Astronomie:</a></p>
+	<ol type="I">
+		<li>Corpuri cere&#351;ti:
+			<ol type="1" start="1">
+				<li>Stele</li>
+				<li>Planete</li>
+				<li>Galaxii</li>
+			</ol>
+		</li>
+		<li>Instrumente astronomice</li>
+		<li>Evenimente cosmice:
+			<ol type="a">
+				<li>Eclipsa solara</li>
+				<li>Ploaie de stele</li>
+			</ol>
+		</li>
+	</ol>
+	<br>
+	<img src="drink1.png" alt="Formular de inscriere" style="float: left;width: 50px;height: 50px;"><br>
+	<p><u>B&#259;uturi</u></p>
+	<ul>
+		<li>Cafea</li>
+		<li>Limonad&#259;
+			<ul>
+				<li>Ap&#259; plat&#259;/mineral&#259;</li>
+				<li>L&#259;m&#226;ie</li>
+				<li>Zah&#259;r</li>
+			</ul>
+		</li>
+		<li>Ceai</li>
+		<li>Lapte</li>
+		<li>Suc de portocale</li>
+	</ul>
+</body>
+</html>

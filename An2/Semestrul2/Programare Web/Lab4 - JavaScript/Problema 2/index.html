@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Problema 2</title>
+</head>
+
+<body style="background-color: #f9fdfd;">
+	<img src="https://www.gfbrasov.ro/wp-content/uploads/articles.png" alt="Formular de inscriere" style="float: left;width: 50px;height: 50px;padding-left: 25px;padding-top: 10px;">
+	<h1 style="text-align: center;color: #009f9f">Formular de &#238;nscriere</h1>
+	<br><hr>
+
+	<form name="form-container" action="" onsubmit="return validateForm()" method="post">
+		<fieldset>
+			<legend style="color: #009f9f;"><b>Date personale</b></legend>
+			<table>
+				<tr>
+					<td>Nume:</td> 
+					<td><input type="text" name="name"></td>
+				</tr>
+				<tr>
+					<td>Data na&#351;terii:</td> 
+					<td><input type="date" name="date"></td>
+				</tr>
+				<tr>
+					<td>V&#226;rsta:</td> 
+					<td><input type="text" name="age" disabled></td>
+				</tr>
+				<tr>
+					<td>Adesa de email:</td> 
+					<td><input type="text" name="email"></td>
+				</tr>
+			</table>
+		</fieldset>
+		<br><hr>
+		<input type="submit" name="Trimite">
+	</form>
+
+	<script src="program.js" defer></script>
+
+</body>
+
+</html>

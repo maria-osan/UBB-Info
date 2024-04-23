@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Problema 6</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+	<h1 align="center">Puzzle Game</h1>
+
+	<br>
+	<div align="center">
+        <label for="size">Select puzzle size:</label>
+        <select id="size">
+            <option value="3x3">3 x 3</option>
+            <option value="4x4" selected>4 x 4</option>
+            <option value="5x5">5 x 5</option>
+        </select>
+        <button onclick="changePuzzleSize()">Apply</button>
+    </div><br>
+
+	<table id="puzzle" align="center"></table>
+
+	<script src="program.js"></script>
+</body>
+
+</html>
