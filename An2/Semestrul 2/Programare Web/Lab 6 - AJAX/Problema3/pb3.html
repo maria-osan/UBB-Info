@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Problema 3</title>
+</head>
+<body>
+    <h2>Formular</h2>
+    <select id="id" onchange="loadItemData()"></select>
+    <br><br>
+    <form>
+        Nume: <br><input type="text" id="lastname" onchange="enableSaveButton()" autocomplete="off"><br>
+        Prenume: <br><input type="text" id="firstname" onchange="enableSaveButton()" autocomplete="off"><br>
+        Relefon: <br><input type="text" id="phoneNumber" onchange="enableSaveButton()" autocomplete="off"><br>
+        Email: <br><input type="text" id="email" onchange="enableSaveButton()" autocomplete="off"><br><br>
+        <button type="button" onclick="saveData()" id="saveButton" disabled>Save</button>
+    </form>
+
+    <script>
+        let formChangedFlag = false;
+
+        window.addEventListener('beforeunload', function(event) {
+            var lastname = document.getElementById("lastname").value;
+            var firstname = document.getElementById("firstname").value;
+            var phoneNumber = document.getElementById("phoneNumber").value;
+            var email = document.getElementById("email").value;
+
+            if (lastname !== "" || firstname !== "" || phoneNumber !== "" || email !== "") {
+                event.preventDefault(); // Cancel the unload event
+                event.returnValue = ''; // Required for legacy browsers
+                return 'Datele au fost modificate. Doriți să salvați modificările?';
+            }
+        });
+
+        // Funcție pentru a încărca și afișa datele corespunzătoare elementului selectat
+        function loadItemData() {
+            if (formChangedFlag) {
+                if (!confirm('Datele au fost modificate. Doriți să salvați modificările înainte de a schimba selecția?')) {
+                    formChangedFlag = false;
+                } else {
+                    saveData();
+                    return;
+                }
+            }
+
+            var selectedItem = document.getElementById("id").value;
+
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    var itemData = JSON.parse(this.responseText);
+
+                    if(itemData.error) {
+                        alert(itemData.error);
+                    } else {
+                        document.getElementById("lastname").value = itemData.lastname;
+                        document.getElementById("firstname").value = itemData.firstname;
+                        document.getElementById("phoneNumber").value = itemData.phoneNumber;
+                        document.getElementById("email").value = itemData.email;
+                        formChangedFlag = false;
+                        document.getElementById('saveButton').disabled = true;
+                    }
+                }
+            };
+
+            // Trimitem cererea GET către server pentru a obține datele elementului selectat
+            xhttp.open("GET", "http://localhost/Lab6AJAX/Problema3/getData.php?id=" + selectedItem, true);
+            xhttp.send();
+        }
+
+        function enableSaveButton() {
+            formChangedFlag = true;
+            document.getElementById('saveButton').disabled = false;
+        }
+
+        // Funcție pentru salvarea datelor modificare pe server
+        function saveData() {
+            // Obținem valorile din formular
+            var id = document.getElementById("id").value;
+            var lastname = document.getElementById("lastname").value;
+            var firstname = document.getElementById("firstname").value;
+            var phoneNumber = document.getElementById("phoneNumber").value;
+            var email = document.getElementById("email").value;
+
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    var response = JSON.parse(this.responseText);
+                    if (response.success) {
+                        alert("Datele au fost salvate cu succes!");
+                        formChangedFlag = false;
+                        document.getElementById('saveButton').disabled = true;
+                    } else {
+                        alert(response.error);
+                    }
+                }
+            };
+
+            // Trimitem cererea POST către server pentru a salva datele
+            xhttp.open("POST", "http://localhost/Lab6AJAX/Problema3/saveData.php", true);
+            xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            xhttp.send("id=" + encodeURIComponent(id) + "&lastname=" + encodeURIComponent(lastname) + "&firstname=" + encodeURIComponent(firstname) + "&phoneNumber=" + encodeURIComponent(phoneNumber) + "&email=" + encodeURIComponent(email));
+        }
+
+        // Populăm lista de ID-uri la încărcarea paginii
+        window.onload = function() {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    var ids = JSON.parse(this.responseText);
+                    var select = document.getElementById("id");
+
+                    var option = document.createElement("option");
+                    option.value = id;
+                    option.text = "id";
+                    select.add(option);
+
+                    ids.forEach(function(id) {
+                        var option = document.createElement("option");
+                        option.value = id;
+                        option.text = id;
+                        select.add(option);
+                    });
+                }
+            };
+            xhttp.open("GET", "http://localhost/Lab6AJAX/Problema3/getIds.php", true);
+            xhttp.send();
+        };
+    </script>
+</body>
+</html>

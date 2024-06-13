@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Problema 1</title>
+</head>
+
+<body>
+	<form method="POST" action="pb1.php">
+    <label for="plecare">Localitate Plecare:</label>
+    <input type="text" id="plecare" name="plecare" required><br><br>
+    
+    <label for="sosire">Localitate Sosire:</label>
+    <input type="text" id="sosire" name="sosire" required><br><br>
+    
+    <input type="radio" id="curse_directe" name="tip_cursa" value="direct" required>
+    <label for="curse_directe">Curse directe</label>
+
+    <input type="radio" id="curse_legatura" name="tip_cursa" value="legatura" required>
+    <label for="curse_legatura">Curse cu legatura</label><br><br>
+    
+    <input type="submit" value="Cauta"><br><br>
+
+    <div id="rezultat"></div>
+</form>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Problema 1</title>
+</head>
+<body onload="getDeparrture()">
+    <h2>Departure Station</h2>
+    <select id="departure" onchange="getArrivals(this.value)">
+        <!-- Departure stations will be populated by AJAX -->
+    </select>
+
+    <h2>Arrival Stations</h2>
+    <select id="arrival" multiple>
+        <option>(none)</option>
+        <!-- Arrival stations will be populated by AJAX -->
+    </select>
+
+    <script>
+        function getDeparrture() {
+            xmlhttp=GetXmlHttpObject();
+
+            if (xmlhttp == null)  {
+                alert ("Your browser does not support XMLHTTP!");
+                return;
+            }
+
+            var url = "http://localhost/Lab6AJAX/Problema1/showDeparture.php";
+            xmlhttp.onreadystatechange = stateChangedDeparture;
+            xmlhttp.open("GET", url, true);
+            xmlhttp.send(null);
+        }
+
+        function getArrivals(elem) {
+            xmlhttp=GetXmlHttpObject(); 
+            console.log("Intra " + elem.value);
+
+            if (xmlhttp == null)  {
+                alert ("Your browser does not support XMLHTTP!");
+                return;
+            }
+
+            var url = "http://localhost/Lab6AJAX/Problema1/showArrivals.php?departure="+ elem;
+            xmlhttp.onreadystatechange = stateChangedArrival;
+            xmlhttp.open("GET", url, true);
+            xmlhttp.send(null);
+        }
+            
+        function stateChangedArrival() {
+            if (xmlhttp.readyState==4) {
+                document.getElementById("arrival").innerHTML=xmlhttp.responseText;
+            }
+        }
+            
+        function stateChangedDeparture() {
+            if (xmlhttp.readyState==4) {
+                  document.getElementById("departure").innerHTML=xmlhttp.responseText;
+            }
+        }
+        
+        function GetXmlHttpObject() {
+            if (window.XMLHttpRequest) {     
+                return new XMLHttpRequest();
+            }
+                if (window.ActiveXObject) {  
+                return new ActiveXObject("Microsoft.XMLHTTP");
+            }
+            return null;
+        }
+    </script>
+</body>
+</html>
