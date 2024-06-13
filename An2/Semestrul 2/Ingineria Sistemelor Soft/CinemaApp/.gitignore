@@ -1,0 +1,59 @@
+# Ignore build output directories
+/out/
+target/
+build/
+
+# IntelliJ specific files and directories
+/.idea/
+/*.iml
+/*.iws
+
+# Logs
+/logs
+*.log
+
+# Compiled class files
+*.class
+
+# Generated files
+*.jar
+*.war
+*.ear
+*.dll
+*.exe
+*.so
+*.dylib
+
+# Maven and Gradle directories
+/.mvn/
+/.mvn/
+/.gradle/
+/build/
+/target/
+
+# IDE specific
+*.swp
+*~
+
+# Ignore MacOS system files
+.DS_Store
+
+# Ignore Windows system files
+Thumbs.db
+desktop.ini
+
+# Ignore Linux system files
+*~
+
+# Ignore JavaFX related files
+/lib/
+.idea/libraries/
+
+# Ignore compiled files and build results
+bin/
+out/
+*.class
+
+# Ignore temporary files
+*.tmp
+*.temp
